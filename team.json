@@ -1,0 +1,25 @@
+{
+  "team_number": "T0031",
+  "group_lead": {
+    "name": "Krish Achra",
+    "enrollment_no": "2501010229",
+    "github": "krishachra"
+  },
+  "members": [
+    {
+      "name": "Narendar Kumar",
+      "enrollment_no": "2501010297",
+      "github": "narendar9888"
+    },
+    {
+      "name": "Krish Singla",
+      "enrollment_no": "2501010575",
+      "github": "krishsingla575"
+    },
+    {
+      "name": "Lakshay",
+      "enrollment_no": "2501010245",
+      "github": "lakshay-munjal-x"
+    }
+  ]
+}

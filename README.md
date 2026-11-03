@@ -27,7 +27,7 @@
 | Member 3 |Krish Singla |2501010575 |krishsingla575 |
 | Member 4 |Lakshay |2501010245 |lakshay-munjal-x |
 
-**Team No.:** T0031 · **Section:** C · **Repository URL:** https://github.com/narendar9888/Skillor_AP_2026.git
+**Team No.:** T0031 · **Section:** C/B · **Repository URL:** https://github.com/narendar9888/Skillor_AP_2026.git
 
 ---
 
