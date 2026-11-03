@@ -22,12 +22,12 @@
 
 | Role | Name | Enrollment No. | GitHub Username |
 |------|------|----------------|-----------------|
-| Group Lead | | | |
-| Member 2 | | | |
-| Member 3 | | | |
-| Member 4 | | | |
+| Group Lead |Krish Achra |2501010229 |krishachra | 
+| Member 2 |Narendar Kumar |2501010297 |narendar9888 |
+| Member 3 |Krish Singla |2501010575 |krishsingla575 |
+| Member 4 |Lakshay |2501010245 |lakshay-munjal-x |
 
-**Team No.:** ____ · **Section:** ____ · **Repository URL:** ____
+**Team No.:** T0031 · **Section:** C · **Repository URL:** https://github.com/narendar9888/Skillor_AP_2026.git
 
 ---
 
