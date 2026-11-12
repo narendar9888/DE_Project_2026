@@ -1,0 +1,88 @@
+erDiagram
+    AIRPORTS ||--o{ FLIGHTS : origin
+    AIRPORTS ||--o{ FLIGHTS : destination
+    AIRLINES ||--o{ FLIGHTS : operates
+    HOTELS ||--o{ ROOM_TYPES : offers
+    CUSTOMERS ||--o{ BOOKINGS : makes
+    COUPONS o|--o{ BOOKINGS : discounts
+    BOOKINGS ||--o| FLIGHT_BOOKINGS : subtype
+    BOOKINGS ||--o| HOTEL_BOOKINGS : subtype
+    FLIGHTS ||--o{ FLIGHT_BOOKINGS : booked_on
+    FLIGHT_BOOKINGS ||--|{ PASSENGERS : contains
+    HOTELS ||--o{ HOTEL_BOOKINGS : stay_at
+    ROOM_TYPES ||--o{ HOTEL_BOOKINGS : selected
+    HOTEL_BOOKINGS ||--o{ HOTEL_REVIEWS : receives
+
+    AIRPORTS {
+      varchar iata_code PK
+      varchar airport_name
+      varchar city_name
+      varchar country_code
+    }
+    AIRLINES {
+      varchar airline_code PK
+      varchar airline_name
+    }
+    FLIGHTS {
+      int flight_id PK
+      varchar airline_code FK
+      varchar origin FK
+      varchar destination FK
+      timestamptz departure_at
+      timestamptz arrival_at
+      numeric base_fare
+    }
+    HOTELS {
+      int hotel_id PK
+      varchar hotel_name
+      varchar city_name
+      jsonb amenities
+    }
+    ROOM_TYPES {
+      int room_type_id PK
+      int hotel_id FK
+      varchar room_name
+      numeric price_per_night
+    }
+    CUSTOMERS {
+      int customer_id PK
+      varchar full_name
+      varchar email
+    }
+    COUPONS {
+      varchar coupon_code PK
+      varchar applies_to
+      numeric discount_pct
+    }
+    BOOKINGS {
+      int booking_id PK
+      varchar booking_ref UK
+      int customer_id FK
+      varchar booking_type
+      varchar coupon_code FK
+    }
+    FLIGHT_BOOKINGS {
+      int booking_id PK, FK
+      int flight_id FK
+      varchar cabin
+      int passengers
+    }
+    PASSENGERS {
+      int booking_id PK, FK
+      int seq_no PK
+      varchar full_name
+      varchar seat_no
+    }
+    HOTEL_BOOKINGS {
+      int booking_id PK, FK
+      int hotel_id FK
+      int room_type_id FK
+      date check_in
+      date check_out
+    }
+    HOTEL_REVIEWS {
+      int review_id PK
+      int booking_id FK
+      int hotel_id FK
+      int rating
+    }
