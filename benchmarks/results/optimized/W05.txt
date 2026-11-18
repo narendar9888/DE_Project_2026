@@ -1,0 +1,90 @@
+=== W05 run 1 ===
+Update on hotel_bookings hb  (cost=0.58..117.72 rows=0 width=0) (actual time=2.573..2.580 rows=0 loops=1)
+  Buffers: shared hit=2007
+  ->  Nested Loop  (cost=0.58..117.72 rows=1 width=70) (actual time=0.041..0.743 rows=89 loops=1)
+        Buffers: shared hit=346
+        ->  Index Scan using idx_hotel_bookings_unassigned_checkin on hotel_bookings hb  (cost=0.28..26.24 rows=11 width=10) (actual time=0.023..0.165 rows=101 loops=1)
+              Index Cond: (check_in = '2026-07-01'::date)
+              Filter: (room_number IS NULL)
+              Buffers: shared hit=43
+        ->  Index Scan using bookings_pkey on bookings b  (cost=0.29..8.31 rows=1 width=10) (actual time=0.005..0.005 rows=1 loops=101)
+              Index Cond: (booking_id = hb.booking_id)
+              Filter: ((status)::text = 'CONFIRMED'::text)
+              Rows Removed by Filter: 0
+              Buffers: shared hit=303
+Planning:
+  Buffers: shared hit=479
+Planning Time: 2.404 ms
+Execution Time: 2.726 ms
+=== W05 run 2 ===
+Update on hotel_bookings hb  (cost=0.58..117.72 rows=0 width=0) (actual time=2.952..2.956 rows=0 loops=1)
+  Buffers: shared hit=1972 dirtied=1 written=1
+  ->  Nested Loop  (cost=0.58..117.72 rows=1 width=70) (actual time=0.050..0.868 rows=89 loops=1)
+        Buffers: shared hit=346
+        ->  Index Scan using idx_hotel_bookings_unassigned_checkin on hotel_bookings hb  (cost=0.28..26.24 rows=11 width=10) (actual time=0.033..0.294 rows=101 loops=1)
+              Index Cond: (check_in = '2026-07-01'::date)
+              Filter: (room_number IS NULL)
+              Buffers: shared hit=43
+        ->  Index Scan using bookings_pkey on bookings b  (cost=0.29..8.31 rows=1 width=10) (actual time=0.005..0.005 rows=1 loops=101)
+              Index Cond: (booking_id = hb.booking_id)
+              Filter: ((status)::text = 'CONFIRMED'::text)
+              Rows Removed by Filter: 0
+              Buffers: shared hit=303
+Planning:
+  Buffers: shared hit=479
+Planning Time: 2.397 ms
+Execution Time: 3.115 ms
+=== W05 run 3 ===
+Update on hotel_bookings hb  (cost=0.58..117.72 rows=0 width=0) (actual time=3.240..3.252 rows=0 loops=1)
+  Buffers: shared hit=1969
+  ->  Nested Loop  (cost=0.58..117.72 rows=1 width=70) (actual time=0.053..1.020 rows=89 loops=1)
+        Buffers: shared hit=346
+        ->  Index Scan using idx_hotel_bookings_unassigned_checkin on hotel_bookings hb  (cost=0.28..26.24 rows=11 width=10) (actual time=0.034..0.328 rows=101 loops=1)
+              Index Cond: (check_in = '2026-07-01'::date)
+              Filter: (room_number IS NULL)
+              Buffers: shared hit=43
+        ->  Index Scan using bookings_pkey on bookings b  (cost=0.29..8.31 rows=1 width=10) (actual time=0.006..0.006 rows=1 loops=101)
+              Index Cond: (booking_id = hb.booking_id)
+              Filter: ((status)::text = 'CONFIRMED'::text)
+              Rows Removed by Filter: 0
+              Buffers: shared hit=303
+Planning:
+  Buffers: shared hit=479
+Planning Time: 2.552 ms
+Execution Time: 3.406 ms
+=== W05 run 4 ===
+Update on hotel_bookings hb  (cost=0.58..117.72 rows=0 width=0) (actual time=2.647..2.653 rows=0 loops=1)
+  Buffers: shared hit=1956 dirtied=1 written=1
+  ->  Nested Loop  (cost=0.58..117.72 rows=1 width=70) (actual time=0.041..0.759 rows=89 loops=1)
+        Buffers: shared hit=346
+        ->  Index Scan using idx_hotel_bookings_unassigned_checkin on hotel_bookings hb  (cost=0.28..26.24 rows=11 width=10) (actual time=0.028..0.254 rows=101 loops=1)
+              Index Cond: (check_in = '2026-07-01'::date)
+              Filter: (room_number IS NULL)
+              Buffers: shared hit=43
+        ->  Index Scan using bookings_pkey on bookings b  (cost=0.29..8.31 rows=1 width=10) (actual time=0.004..0.004 rows=1 loops=101)
+              Index Cond: (booking_id = hb.booking_id)
+              Filter: ((status)::text = 'CONFIRMED'::text)
+              Rows Removed by Filter: 0
+              Buffers: shared hit=303
+Planning:
+  Buffers: shared hit=479
+Planning Time: 2.086 ms
+Execution Time: 2.781 ms
+=== W05 run 5 ===
+Update on hotel_bookings hb  (cost=0.58..117.72 rows=0 width=0) (actual time=2.969..2.972 rows=0 loops=1)
+  Buffers: shared hit=1978 dirtied=1 written=1
+  ->  Nested Loop  (cost=0.58..117.72 rows=1 width=70) (actual time=0.055..0.895 rows=89 loops=1)
+        Buffers: shared hit=346
+        ->  Index Scan using idx_hotel_bookings_unassigned_checkin on hotel_bookings hb  (cost=0.28..26.24 rows=11 width=10) (actual time=0.033..0.304 rows=101 loops=1)
+              Index Cond: (check_in = '2026-07-01'::date)
+              Filter: (room_number IS NULL)
+              Buffers: shared hit=43
+        ->  Index Scan using bookings_pkey on bookings b  (cost=0.29..8.31 rows=1 width=10) (actual time=0.005..0.005 rows=1 loops=101)
+              Index Cond: (booking_id = hb.booking_id)
+              Filter: ((status)::text = 'CONFIRMED'::text)
+              Rows Removed by Filter: 0
+              Buffers: shared hit=303
+Planning:
+  Buffers: shared hit=479
+Planning Time: 1.892 ms
+Execution Time: 3.122 ms

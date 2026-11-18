@@ -1,0 +1,55 @@
+=== R16 run 1 ===
+Sort  (cost=1.20..1.22 rows=8 width=19) (actual time=0.031..0.033 rows=8 loops=1)
+  Sort Key: booking_type, loyalty_tier
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=4
+  ->  Seq Scan on mv_booking_lead_time  (cost=0.00..1.08 rows=8 width=19) (actual time=0.005..0.006 rows=8 loops=1)
+        Buffers: shared hit=1
+Planning:
+  Buffers: shared hit=66
+Planning Time: 0.336 ms
+Execution Time: 0.054 ms
+=== R16 run 2 ===
+Sort  (cost=1.20..1.22 rows=8 width=19) (actual time=0.028..0.029 rows=8 loops=1)
+  Sort Key: booking_type, loyalty_tier
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=4
+  ->  Seq Scan on mv_booking_lead_time  (cost=0.00..1.08 rows=8 width=19) (actual time=0.004..0.005 rows=8 loops=1)
+        Buffers: shared hit=1
+Planning:
+  Buffers: shared hit=66
+Planning Time: 0.259 ms
+Execution Time: 0.047 ms
+=== R16 run 3 ===
+Sort  (cost=1.20..1.22 rows=8 width=19) (actual time=0.032..0.034 rows=8 loops=1)
+  Sort Key: booking_type, loyalty_tier
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=4
+  ->  Seq Scan on mv_booking_lead_time  (cost=0.00..1.08 rows=8 width=19) (actual time=0.005..0.006 rows=8 loops=1)
+        Buffers: shared hit=1
+Planning:
+  Buffers: shared hit=66
+Planning Time: 0.470 ms
+Execution Time: 0.053 ms
+=== R16 run 4 ===
+Sort  (cost=1.20..1.22 rows=8 width=19) (actual time=0.043..0.045 rows=8 loops=1)
+  Sort Key: booking_type, loyalty_tier
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=4
+  ->  Seq Scan on mv_booking_lead_time  (cost=0.00..1.08 rows=8 width=19) (actual time=0.006..0.007 rows=8 loops=1)
+        Buffers: shared hit=1
+Planning:
+  Buffers: shared hit=66
+Planning Time: 0.451 ms
+Execution Time: 0.077 ms
+=== R16 run 5 ===
+Sort  (cost=1.20..1.22 rows=8 width=19) (actual time=0.037..0.039 rows=8 loops=1)
+  Sort Key: booking_type, loyalty_tier
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=4
+  ->  Seq Scan on mv_booking_lead_time  (cost=0.00..1.08 rows=8 width=19) (actual time=0.005..0.005 rows=8 loops=1)
+        Buffers: shared hit=1
+Planning:
+  Buffers: shared hit=66
+Planning Time: 0.324 ms
+Execution Time: 0.059 ms

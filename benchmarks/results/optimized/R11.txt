@@ -1,0 +1,45 @@
+=== R11 run 1 ===
+Index Only Scan using idx_bookings_pending_booked_at on bookings  (cost=0.14..13.91 rows=101 width=31) (actual time=0.009..0.025 rows=92 loops=1)
+  Index Cond: (booked_at < ('2026-06-30 23:59:00+05:30'::timestamp with time zone - '00:30:00'::interval))
+  Heap Fetches: 59
+  Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=252
+Planning Time: 1.297 ms
+Execution Time: 0.045 ms
+=== R11 run 2 ===
+Index Only Scan using idx_bookings_pending_booked_at on bookings  (cost=0.14..13.91 rows=101 width=31) (actual time=0.009..0.030 rows=92 loops=1)
+  Index Cond: (booked_at < ('2026-06-30 23:59:00+05:30'::timestamp with time zone - '00:30:00'::interval))
+  Heap Fetches: 59
+  Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=252
+Planning Time: 1.043 ms
+Execution Time: 0.050 ms
+=== R11 run 3 ===
+Index Only Scan using idx_bookings_pending_booked_at on bookings  (cost=0.14..13.91 rows=101 width=31) (actual time=0.013..0.033 rows=92 loops=1)
+  Index Cond: (booked_at < ('2026-06-30 23:59:00+05:30'::timestamp with time zone - '00:30:00'::interval))
+  Heap Fetches: 59
+  Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=252
+Planning Time: 0.943 ms
+Execution Time: 0.060 ms
+=== R11 run 4 ===
+Index Only Scan using idx_bookings_pending_booked_at on bookings  (cost=0.14..13.91 rows=101 width=31) (actual time=0.010..0.026 rows=92 loops=1)
+  Index Cond: (booked_at < ('2026-06-30 23:59:00+05:30'::timestamp with time zone - '00:30:00'::interval))
+  Heap Fetches: 59
+  Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=252
+Planning Time: 0.905 ms
+Execution Time: 0.046 ms
+=== R11 run 5 ===
+Index Only Scan using idx_bookings_pending_booked_at on bookings  (cost=0.14..13.91 rows=101 width=31) (actual time=0.013..0.038 rows=92 loops=1)
+  Index Cond: (booked_at < ('2026-06-30 23:59:00+05:30'::timestamp with time zone - '00:30:00'::interval))
+  Heap Fetches: 59
+  Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=252
+Planning Time: 1.747 ms
+Execution Time: 0.069 ms

@@ -1,0 +1,55 @@
+=== R14 run 1 ===
+Sort  (cost=1.11..1.12 rows=5 width=25) (actual time=0.025..0.027 rows=5 loops=1)
+  Sort Key: cancel_pct DESC
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=4
+  ->  Seq Scan on mv_airline_cancel_rates  (cost=0.00..1.05 rows=5 width=25) (actual time=0.006..0.006 rows=5 loops=1)
+        Buffers: shared hit=1
+Planning:
+  Buffers: shared hit=71
+Planning Time: 0.382 ms
+Execution Time: 0.053 ms
+=== R14 run 2 ===
+Sort  (cost=1.11..1.12 rows=5 width=25) (actual time=0.025..0.027 rows=5 loops=1)
+  Sort Key: cancel_pct DESC
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=4
+  ->  Seq Scan on mv_airline_cancel_rates  (cost=0.00..1.05 rows=5 width=25) (actual time=0.005..0.006 rows=5 loops=1)
+        Buffers: shared hit=1
+Planning:
+  Buffers: shared hit=71
+Planning Time: 0.343 ms
+Execution Time: 0.053 ms
+=== R14 run 3 ===
+Sort  (cost=1.11..1.12 rows=5 width=25) (actual time=0.029..0.032 rows=5 loops=1)
+  Sort Key: cancel_pct DESC
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=4
+  ->  Seq Scan on mv_airline_cancel_rates  (cost=0.00..1.05 rows=5 width=25) (actual time=0.007..0.007 rows=5 loops=1)
+        Buffers: shared hit=1
+Planning:
+  Buffers: shared hit=71
+Planning Time: 0.349 ms
+Execution Time: 0.063 ms
+=== R14 run 4 ===
+Sort  (cost=1.11..1.12 rows=5 width=25) (actual time=0.024..0.026 rows=5 loops=1)
+  Sort Key: cancel_pct DESC
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=4
+  ->  Seq Scan on mv_airline_cancel_rates  (cost=0.00..1.05 rows=5 width=25) (actual time=0.005..0.006 rows=5 loops=1)
+        Buffers: shared hit=1
+Planning:
+  Buffers: shared hit=71
+Planning Time: 0.341 ms
+Execution Time: 0.052 ms
+=== R14 run 5 ===
+Sort  (cost=1.11..1.12 rows=5 width=25) (actual time=0.026..0.028 rows=5 loops=1)
+  Sort Key: cancel_pct DESC
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=4
+  ->  Seq Scan on mv_airline_cancel_rates  (cost=0.00..1.05 rows=5 width=25) (actual time=0.006..0.007 rows=5 loops=1)
+        Buffers: shared hit=1
+Planning:
+  Buffers: shared hit=71
+Planning Time: 0.344 ms
+Execution Time: 0.056 ms

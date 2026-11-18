@@ -1,0 +1,80 @@
+=== R02 run 1 ===
+GroupAggregate  (cost=9.61..10.13 rows=26 width=36) (actual time=0.024..0.028 rows=31 loops=1)
+  Group Key: ((departure_at)::date)
+  Buffers: shared hit=7
+  ->  Sort  (cost=9.61..9.68 rows=26 width=9) (actual time=0.022..0.022 rows=31 loops=1)
+        Sort Key: ((departure_at)::date)
+        Sort Method: quicksort  Memory: 26kB
+        Buffers: shared hit=7
+        ->  Index Only Scan using idx_flights_route_dep on flights  (cost=0.29..9.00 rows=26 width=9) (actual time=0.011..0.015 rows=31 loops=1)
+              Index Cond: ((origin = 'BLR'::text) AND (destination = 'DEL'::text) AND (departure_at >= '2026-07-01 00:00:00+05:30'::timestamp with time zone) AND (departure_at < '2026-08-01 00:00:00+05:30'::timestamp with time zone))
+              Heap Fetches: 0
+              Buffers: shared hit=4
+Planning:
+  Buffers: shared hit=223
+Planning Time: 0.322 ms
+Execution Time: 0.045 ms
+=== R02 run 2 ===
+GroupAggregate  (cost=9.61..10.13 rows=26 width=36) (actual time=0.029..0.033 rows=31 loops=1)
+  Group Key: ((departure_at)::date)
+  Buffers: shared hit=7
+  ->  Sort  (cost=9.61..9.68 rows=26 width=9) (actual time=0.026..0.026 rows=31 loops=1)
+        Sort Key: ((departure_at)::date)
+        Sort Method: quicksort  Memory: 26kB
+        Buffers: shared hit=7
+        ->  Index Only Scan using idx_flights_route_dep on flights  (cost=0.29..9.00 rows=26 width=9) (actual time=0.012..0.016 rows=31 loops=1)
+              Index Cond: ((origin = 'BLR'::text) AND (destination = 'DEL'::text) AND (departure_at >= '2026-07-01 00:00:00+05:30'::timestamp with time zone) AND (departure_at < '2026-08-01 00:00:00+05:30'::timestamp with time zone))
+              Heap Fetches: 0
+              Buffers: shared hit=4
+Planning:
+  Buffers: shared hit=223
+Planning Time: 0.584 ms
+Execution Time: 0.053 ms
+=== R02 run 3 ===
+GroupAggregate  (cost=9.61..10.13 rows=26 width=36) (actual time=0.050..0.064 rows=31 loops=1)
+  Group Key: ((departure_at)::date)
+  Buffers: shared hit=7
+  ->  Sort  (cost=9.61..9.68 rows=26 width=9) (actual time=0.045..0.047 rows=31 loops=1)
+        Sort Key: ((departure_at)::date)
+        Sort Method: quicksort  Memory: 26kB
+        Buffers: shared hit=7
+        ->  Index Only Scan using idx_flights_route_dep on flights  (cost=0.29..9.00 rows=26 width=9) (actual time=0.021..0.030 rows=31 loops=1)
+              Index Cond: ((origin = 'BLR'::text) AND (destination = 'DEL'::text) AND (departure_at >= '2026-07-01 00:00:00+05:30'::timestamp with time zone) AND (departure_at < '2026-08-01 00:00:00+05:30'::timestamp with time zone))
+              Heap Fetches: 0
+              Buffers: shared hit=4
+Planning:
+  Buffers: shared hit=223
+Planning Time: 0.670 ms
+Execution Time: 0.096 ms
+=== R02 run 4 ===
+GroupAggregate  (cost=9.61..10.13 rows=26 width=36) (actual time=0.029..0.035 rows=31 loops=1)
+  Group Key: ((departure_at)::date)
+  Buffers: shared hit=7
+  ->  Sort  (cost=9.61..9.68 rows=26 width=9) (actual time=0.025..0.026 rows=31 loops=1)
+        Sort Key: ((departure_at)::date)
+        Sort Method: quicksort  Memory: 26kB
+        Buffers: shared hit=7
+        ->  Index Only Scan using idx_flights_route_dep on flights  (cost=0.29..9.00 rows=26 width=9) (actual time=0.011..0.016 rows=31 loops=1)
+              Index Cond: ((origin = 'BLR'::text) AND (destination = 'DEL'::text) AND (departure_at >= '2026-07-01 00:00:00+05:30'::timestamp with time zone) AND (departure_at < '2026-08-01 00:00:00+05:30'::timestamp with time zone))
+              Heap Fetches: 0
+              Buffers: shared hit=4
+Planning:
+  Buffers: shared hit=223
+Planning Time: 0.831 ms
+Execution Time: 0.055 ms
+=== R02 run 5 ===
+GroupAggregate  (cost=9.61..10.13 rows=26 width=36) (actual time=0.051..0.062 rows=31 loops=1)
+  Group Key: ((departure_at)::date)
+  Buffers: shared hit=7
+  ->  Sort  (cost=9.61..9.68 rows=26 width=9) (actual time=0.045..0.047 rows=31 loops=1)
+        Sort Key: ((departure_at)::date)
+        Sort Method: quicksort  Memory: 26kB
+        Buffers: shared hit=7
+        ->  Index Only Scan using idx_flights_route_dep on flights  (cost=0.29..9.00 rows=26 width=9) (actual time=0.020..0.030 rows=31 loops=1)
+              Index Cond: ((origin = 'BLR'::text) AND (destination = 'DEL'::text) AND (departure_at >= '2026-07-01 00:00:00+05:30'::timestamp with time zone) AND (departure_at < '2026-08-01 00:00:00+05:30'::timestamp with time zone))
+              Heap Fetches: 0
+              Buffers: shared hit=4
+Planning:
+  Buffers: shared hit=223
+Planning Time: 0.628 ms
+Execution Time: 0.094 ms
