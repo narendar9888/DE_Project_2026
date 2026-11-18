@@ -1,0 +1,45 @@
+=== R10 run 1 ===
+Index Only Scan using idx_flights_active_dep on flights  (cost=0.28..8.38 rows=6 width=27) (actual time=0.052..0.054 rows=6 loops=1)
+  Index Cond: (status = 'DELAYED'::text)
+  Heap Fetches: 0
+  Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=202
+Planning Time: 0.305 ms
+Execution Time: 0.064 ms
+=== R10 run 2 ===
+Index Only Scan using idx_flights_active_dep on flights  (cost=0.28..8.38 rows=6 width=27) (actual time=0.028..0.030 rows=6 loops=1)
+  Index Cond: (status = 'DELAYED'::text)
+  Heap Fetches: 0
+  Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=202
+Planning Time: 0.368 ms
+Execution Time: 0.038 ms
+=== R10 run 3 ===
+Index Only Scan using idx_flights_active_dep on flights  (cost=0.28..8.38 rows=6 width=27) (actual time=0.023..0.025 rows=6 loops=1)
+  Index Cond: (status = 'DELAYED'::text)
+  Heap Fetches: 0
+  Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=202
+Planning Time: 0.238 ms
+Execution Time: 0.032 ms
+=== R10 run 4 ===
+Index Only Scan using idx_flights_active_dep on flights  (cost=0.28..8.38 rows=6 width=27) (actual time=0.024..0.026 rows=6 loops=1)
+  Index Cond: (status = 'DELAYED'::text)
+  Heap Fetches: 0
+  Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=202
+Planning Time: 0.251 ms
+Execution Time: 0.033 ms
+=== R10 run 5 ===
+Index Only Scan using idx_flights_active_dep on flights  (cost=0.28..8.38 rows=6 width=27) (actual time=0.025..0.026 rows=6 loops=1)
+  Index Cond: (status = 'DELAYED'::text)
+  Heap Fetches: 0
+  Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=202
+Planning Time: 0.258 ms
+Execution Time: 0.033 ms

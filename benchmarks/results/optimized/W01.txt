@@ -1,0 +1,50 @@
+=== W01 run 1 ===
+Insert on bookings  (cost=0.00..0.01 rows=0 width=0) (actual time=0.203..0.204 rows=0 loops=1)
+  Buffers: shared hit=211
+  ->  Result  (cost=0.00..0.01 rows=1 width=402) (actual time=0.001..0.001 rows=1 loops=1)
+Planning:
+  Buffers: shared hit=6
+Planning Time: 0.039 ms
+Trigger for constraint bookings_customer_id_fkey: time=0.221 calls=1
+Trigger for constraint bookings_coupon_code_fkey: time=0.008 calls=1
+Execution Time: 0.443 ms
+=== W01 run 2 ===
+Insert on bookings  (cost=0.00..0.01 rows=0 width=0) (actual time=0.294..0.295 rows=0 loops=1)
+  Buffers: shared hit=212
+  ->  Result  (cost=0.00..0.01 rows=1 width=402) (actual time=0.001..0.001 rows=1 loops=1)
+Planning:
+  Buffers: shared hit=6
+Planning Time: 0.039 ms
+Trigger for constraint bookings_customer_id_fkey: time=0.228 calls=1
+Trigger for constraint bookings_coupon_code_fkey: time=0.008 calls=1
+Execution Time: 0.543 ms
+=== W01 run 3 ===
+Insert on bookings  (cost=0.00..0.01 rows=0 width=0) (actual time=0.279..0.280 rows=0 loops=1)
+  Buffers: shared hit=212
+  ->  Result  (cost=0.00..0.01 rows=1 width=402) (actual time=0.001..0.001 rows=1 loops=1)
+Planning:
+  Buffers: shared hit=6
+Planning Time: 0.043 ms
+Trigger for constraint bookings_customer_id_fkey: time=0.244 calls=1
+Trigger for constraint bookings_coupon_code_fkey: time=0.009 calls=1
+Execution Time: 0.545 ms
+=== W01 run 4 ===
+Insert on bookings  (cost=0.00..0.01 rows=0 width=0) (actual time=0.193..0.194 rows=0 loops=1)
+  Buffers: shared hit=212
+  ->  Result  (cost=0.00..0.01 rows=1 width=402) (actual time=0.001..0.001 rows=1 loops=1)
+Planning:
+  Buffers: shared hit=6
+Planning Time: 0.036 ms
+Trigger for constraint bookings_customer_id_fkey: time=0.243 calls=1
+Trigger for constraint bookings_coupon_code_fkey: time=0.012 calls=1
+Execution Time: 0.460 ms
+=== W01 run 5 ===
+Insert on bookings  (cost=0.00..0.01 rows=0 width=0) (actual time=0.224..0.224 rows=0 loops=1)
+  Buffers: shared hit=212
+  ->  Result  (cost=0.00..0.01 rows=1 width=402) (actual time=0.001..0.001 rows=1 loops=1)
+Planning:
+  Buffers: shared hit=6
+Planning Time: 0.039 ms
+Trigger for constraint bookings_customer_id_fkey: time=0.219 calls=1
+Trigger for constraint bookings_coupon_code_fkey: time=0.010 calls=1
+Execution Time: 0.465 ms

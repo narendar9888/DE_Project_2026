@@ -1,0 +1,60 @@
+=== R03 run 1 ===
+Limit  (cost=0.28..4.32 rows=1 width=32) (actual time=0.057..0.062 rows=20 loops=1)
+  Buffers: shared hit=3
+  ->  Index Only Scan using idx_hotels_city_pool_rating on hotels  (cost=0.28..4.32 rows=1 width=32) (actual time=0.057..0.059 rows=20 loops=1)
+        Index Cond: (city_name = 'Goa'::text)
+        Filter: (star_rating >= 4)
+        Heap Fetches: 0
+        Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=150
+Planning Time: 0.730 ms
+Execution Time: 0.082 ms
+=== R03 run 2 ===
+Limit  (cost=0.28..4.32 rows=1 width=32) (actual time=0.076..0.083 rows=20 loops=1)
+  Buffers: shared hit=3
+  ->  Index Only Scan using idx_hotels_city_pool_rating on hotels  (cost=0.28..4.32 rows=1 width=32) (actual time=0.075..0.078 rows=20 loops=1)
+        Index Cond: (city_name = 'Goa'::text)
+        Filter: (star_rating >= 4)
+        Heap Fetches: 0
+        Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=150
+Planning Time: 0.575 ms
+Execution Time: 0.111 ms
+=== R03 run 3 ===
+Limit  (cost=0.28..4.32 rows=1 width=32) (actual time=0.070..0.075 rows=20 loops=1)
+  Buffers: shared hit=3
+  ->  Index Only Scan using idx_hotels_city_pool_rating on hotels  (cost=0.28..4.32 rows=1 width=32) (actual time=0.069..0.071 rows=20 loops=1)
+        Index Cond: (city_name = 'Goa'::text)
+        Filter: (star_rating >= 4)
+        Heap Fetches: 0
+        Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=150
+Planning Time: 0.563 ms
+Execution Time: 0.098 ms
+=== R03 run 4 ===
+Limit  (cost=0.28..4.32 rows=1 width=32) (actual time=0.055..0.060 rows=20 loops=1)
+  Buffers: shared hit=3
+  ->  Index Only Scan using idx_hotels_city_pool_rating on hotels  (cost=0.28..4.32 rows=1 width=32) (actual time=0.054..0.057 rows=20 loops=1)
+        Index Cond: (city_name = 'Goa'::text)
+        Filter: (star_rating >= 4)
+        Heap Fetches: 0
+        Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=150
+Planning Time: 0.451 ms
+Execution Time: 0.079 ms
+=== R03 run 5 ===
+Limit  (cost=0.28..4.32 rows=1 width=32) (actual time=0.062..0.067 rows=20 loops=1)
+  Buffers: shared hit=3
+  ->  Index Only Scan using idx_hotels_city_pool_rating on hotels  (cost=0.28..4.32 rows=1 width=32) (actual time=0.061..0.063 rows=20 loops=1)
+        Index Cond: (city_name = 'Goa'::text)
+        Filter: (star_rating >= 4)
+        Heap Fetches: 0
+        Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=150
+Planning Time: 0.594 ms
+Execution Time: 0.090 ms

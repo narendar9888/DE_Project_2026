@@ -1,0 +1,90 @@
+=== R12 run 1 ===
+GroupAggregate  (cost=6426.35..7644.54 rows=44298 width=54) (actual time=24.083..28.978 rows=12 loops=1)
+  Group Key: (date_trunc('month'::text, booked_at)), booking_type
+  Buffers: shared hit=459
+  ->  Sort  (cost=6426.35..6537.09 rows=44298 width=20) (actual time=23.454..24.827 rows=44275 loops=1)
+        Sort Key: (date_trunc('month'::text, booked_at)), booking_type
+        Sort Method: quicksort  Memory: 3441kB
+        Buffers: shared hit=459
+        ->  Index Only Scan using idx_bookings_booked_at_id on bookings  (cost=0.42..3007.66 rows=44298 width=20) (actual time=0.023..16.463 rows=44275 loops=1)
+              Index Cond: ((booked_at >= '2026-01-01 00:00:00+05:30'::timestamp with time zone) AND (booked_at < '2027-01-01 00:00:00+05:30'::timestamp with time zone))
+              Filter: ((status)::text <> 'CANCELLED'::text)
+              Rows Removed by Filter: 3749
+              Heap Fetches: 65
+              Buffers: shared hit=453
+Planning:
+  Buffers: shared hit=272
+Planning Time: 2.167 ms
+Execution Time: 29.059 ms
+=== R12 run 2 ===
+GroupAggregate  (cost=6426.35..7644.54 rows=44298 width=54) (actual time=10.959..14.427 rows=12 loops=1)
+  Group Key: (date_trunc('month'::text, booked_at)), booking_type
+  Buffers: shared hit=459
+  ->  Sort  (cost=6426.35..6537.09 rows=44298 width=20) (actual time=10.323..11.355 rows=44275 loops=1)
+        Sort Key: (date_trunc('month'::text, booked_at)), booking_type
+        Sort Method: quicksort  Memory: 3441kB
+        Buffers: shared hit=459
+        ->  Index Only Scan using idx_bookings_booked_at_id on bookings  (cost=0.42..3007.66 rows=44298 width=20) (actual time=0.006..6.561 rows=44275 loops=1)
+              Index Cond: ((booked_at >= '2026-01-01 00:00:00+05:30'::timestamp with time zone) AND (booked_at < '2027-01-01 00:00:00+05:30'::timestamp with time zone))
+              Filter: ((status)::text <> 'CANCELLED'::text)
+              Rows Removed by Filter: 3749
+              Heap Fetches: 64
+              Buffers: shared hit=453
+Planning:
+  Buffers: shared hit=272
+Planning Time: 0.393 ms
+Execution Time: 14.454 ms
+=== R12 run 3 ===
+GroupAggregate  (cost=6426.35..7644.54 rows=44298 width=54) (actual time=11.832..15.628 rows=12 loops=1)
+  Group Key: (date_trunc('month'::text, booked_at)), booking_type
+  Buffers: shared hit=459
+  ->  Sort  (cost=6426.35..6537.09 rows=44298 width=20) (actual time=11.488..12.514 rows=44275 loops=1)
+        Sort Key: (date_trunc('month'::text, booked_at)), booking_type
+        Sort Method: quicksort  Memory: 3441kB
+        Buffers: shared hit=459
+        ->  Index Only Scan using idx_bookings_booked_at_id on bookings  (cost=0.42..3007.66 rows=44298 width=20) (actual time=0.006..7.910 rows=44275 loops=1)
+              Index Cond: ((booked_at >= '2026-01-01 00:00:00+05:30'::timestamp with time zone) AND (booked_at < '2027-01-01 00:00:00+05:30'::timestamp with time zone))
+              Filter: ((status)::text <> 'CANCELLED'::text)
+              Rows Removed by Filter: 3749
+              Heap Fetches: 64
+              Buffers: shared hit=453
+Planning:
+  Buffers: shared hit=272
+Planning Time: 0.400 ms
+Execution Time: 15.667 ms
+=== R12 run 4 ===
+GroupAggregate  (cost=6426.35..7644.54 rows=44298 width=54) (actual time=11.437..15.213 rows=12 loops=1)
+  Group Key: (date_trunc('month'::text, booked_at)), booking_type
+  Buffers: shared hit=459
+  ->  Sort  (cost=6426.35..6537.09 rows=44298 width=20) (actual time=10.915..12.006 rows=44275 loops=1)
+        Sort Key: (date_trunc('month'::text, booked_at)), booking_type
+        Sort Method: quicksort  Memory: 3441kB
+        Buffers: shared hit=459
+        ->  Index Only Scan using idx_bookings_booked_at_id on bookings  (cost=0.42..3007.66 rows=44298 width=20) (actual time=0.007..7.215 rows=44275 loops=1)
+              Index Cond: ((booked_at >= '2026-01-01 00:00:00+05:30'::timestamp with time zone) AND (booked_at < '2027-01-01 00:00:00+05:30'::timestamp with time zone))
+              Filter: ((status)::text <> 'CANCELLED'::text)
+              Rows Removed by Filter: 3749
+              Heap Fetches: 64
+              Buffers: shared hit=453
+Planning:
+  Buffers: shared hit=272
+Planning Time: 0.493 ms
+Execution Time: 15.252 ms
+=== R12 run 5 ===
+GroupAggregate  (cost=6426.35..7644.54 rows=44298 width=54) (actual time=10.606..14.057 rows=12 loops=1)
+  Group Key: (date_trunc('month'::text, booked_at)), booking_type
+  Buffers: shared hit=459
+  ->  Sort  (cost=6426.35..6537.09 rows=44298 width=20) (actual time=10.256..11.155 rows=44275 loops=1)
+        Sort Key: (date_trunc('month'::text, booked_at)), booking_type
+        Sort Method: quicksort  Memory: 3441kB
+        Buffers: shared hit=459
+        ->  Index Only Scan using idx_bookings_booked_at_id on bookings  (cost=0.42..3007.66 rows=44298 width=20) (actual time=0.008..6.902 rows=44275 loops=1)
+              Index Cond: ((booked_at >= '2026-01-01 00:00:00+05:30'::timestamp with time zone) AND (booked_at < '2027-01-01 00:00:00+05:30'::timestamp with time zone))
+              Filter: ((status)::text <> 'CANCELLED'::text)
+              Rows Removed by Filter: 3749
+              Heap Fetches: 64
+              Buffers: shared hit=453
+Planning:
+  Buffers: shared hit=272
+Planning Time: 0.479 ms
+Execution Time: 14.095 ms
