@@ -1,0 +1,36 @@
+=== R22 run 1 ===
+Limit  (cost=0.43..1.81 rows=25 width=43) (actual time=0.295..0.299 rows=25.00 loops=1)
+  Buffers: shared hit=3 read=1
+  ->  Index Only Scan using idx_bookings_booked_at_id on bookings  (cost=0.43..154283.34 rows=2804052 width=43) (actual time=0.294..0.296 rows=25.00 loops=1)
+        Index Cond: (ROW(booked_at, booking_id) < ROW('2026-06-12 03:56:17+05:30'::timestamp with time zone, 2896507))
+        Heap Fetches: 0
+        Index Searches: 1
+        Buffers: shared hit=3 read=1
+Planning:
+  Buffers: shared hit=249 read=1
+Planning Time: 0.783 ms
+Execution Time: 0.326 ms
+=== R22 run 2 ===
+Limit  (cost=0.43..1.81 rows=25 width=43) (actual time=0.051..0.054 rows=25.00 loops=1)
+  Buffers: shared hit=4
+  ->  Index Only Scan using idx_bookings_booked_at_id on bookings  (cost=0.43..154283.34 rows=2804052 width=43) (actual time=0.050..0.052 rows=25.00 loops=1)
+        Index Cond: (ROW(booked_at, booking_id) < ROW('2026-06-12 03:56:17+05:30'::timestamp with time zone, 2896507))
+        Heap Fetches: 0
+        Index Searches: 1
+        Buffers: shared hit=4
+Planning:
+  Buffers: shared hit=250
+Planning Time: 0.690 ms
+Execution Time: 0.083 ms
+=== R22 run 3 ===
+Limit  (cost=0.43..1.81 rows=25 width=43) (actual time=0.051..0.055 rows=25.00 loops=1)
+  Buffers: shared hit=4
+  ->  Index Only Scan using idx_bookings_booked_at_id on bookings  (cost=0.43..154283.34 rows=2804052 width=43) (actual time=0.050..0.052 rows=25.00 loops=1)
+        Index Cond: (ROW(booked_at, booking_id) < ROW('2026-06-12 03:56:17+05:30'::timestamp with time zone, 2896507))
+        Heap Fetches: 0
+        Index Searches: 1
+        Buffers: shared hit=4
+Planning:
+  Buffers: shared hit=250
+Planning Time: 0.693 ms
+Execution Time: 0.083 ms

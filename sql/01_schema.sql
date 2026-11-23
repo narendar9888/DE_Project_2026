@@ -74,7 +74,7 @@ CREATE TABLE customers (
     loyalty_tier    VARCHAR(20) NOT NULL,
     created_at      TIMESTAMPTZ NOT NULL,
     CONSTRAINT customers_email_nonempty_ck CHECK (length(trim(email)) > 0),
-    CONSTRAINT customers_email_shape_ck CHECK (email ~* '^[A-Z0-9.!#$%&''*+/=?^_`{|}~-]+@[A-Z0-9.-]+\\.[A-Z]{2,}$'),
+    CONSTRAINT customers_email_shape_ck CHECK (email ~* '^[A-Z0-9.!#$%&''*+/=?^_`{|}~-]+@[A-Z0-9.-]+[.][A-Z]{2,}$'),
     CONSTRAINT customers_phone_nonempty_ck CHECK (phone IS NULL OR length(trim(phone)) > 0),
     CONSTRAINT customers_loyalty_nonempty_ck CHECK (length(trim(loyalty_tier)) > 0)
 );

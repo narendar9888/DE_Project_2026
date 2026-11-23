@@ -1,0 +1,33 @@
+=== R14 run 1 ===
+Sort  (cost=1.11..1.12 rows=5 width=24) (actual time=0.234..0.234 rows=5.00 loops=1)
+  Sort Key: cancel_pct DESC
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=3 read=1
+  ->  Seq Scan on mv_airline_cancel_rates  (cost=0.00..1.05 rows=5 width=24) (actual time=0.215..0.216 rows=5.00 loops=1)
+        Buffers: shared read=1
+Planning:
+  Buffers: shared hit=74 read=2 dirtied=1
+Planning Time: 0.538 ms
+Execution Time: 0.255 ms
+=== R14 run 2 ===
+Sort  (cost=1.11..1.12 rows=5 width=24) (actual time=0.020..0.020 rows=5.00 loops=1)
+  Sort Key: cancel_pct DESC
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=4
+  ->  Seq Scan on mv_airline_cancel_rates  (cost=0.00..1.05 rows=5 width=24) (actual time=0.004..0.005 rows=5.00 loops=1)
+        Buffers: shared hit=1
+Planning:
+  Buffers: shared hit=76
+Planning Time: 0.242 ms
+Execution Time: 0.039 ms
+=== R14 run 3 ===
+Sort  (cost=1.11..1.12 rows=5 width=24) (actual time=0.021..0.022 rows=5.00 loops=1)
+  Sort Key: cancel_pct DESC
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=4
+  ->  Seq Scan on mv_airline_cancel_rates  (cost=0.00..1.05 rows=5 width=24) (actual time=0.004..0.005 rows=5.00 loops=1)
+        Buffers: shared hit=1
+Planning:
+  Buffers: shared hit=76
+Planning Time: 0.268 ms
+Execution Time: 0.041 ms

@@ -1,0 +1,45 @@
+=== W04 run 1 ===
+Update on flights  (cost=35.87..205.56 rows=0 width=0) (actual time=2.489..2.489 rows=0.00 loops=1)
+  Buffers: shared hit=129 read=20 dirtied=15
+  ->  Bitmap Heap Scan on flights  (cost=35.87..205.56 rows=713 width=64) (actual time=0.080..0.083 rows=10.00 loops=1)
+        Recheck Cond: (((status)::text = ANY ('{SCHEDULED,DELAYED}'::text[])) AND (departure_at < '2026-07-01 00:00:00+05:30'::timestamp with time zone))
+        Heap Blocks: exact=1
+        Buffers: shared read=3
+        ->  Bitmap Index Scan on idx_flights_active_dep  (cost=0.00..35.69 rows=713 width=0) (actual time=0.036..0.036 rows=10.00 loops=1)
+              Index Cond: (((status)::text = ANY ('{SCHEDULED,DELAYED}'::text[])) AND (departure_at < '2026-07-01 00:00:00+05:30'::timestamp with time zone))
+              Index Searches: 1
+              Buffers: shared read=2
+Planning:
+  Buffers: shared hit=231
+Planning Time: 0.698 ms
+Execution Time: 2.567 ms
+=== W04 run 2 ===
+Update on flights  (cost=35.87..205.56 rows=0 width=0) (actual time=0.391..0.392 rows=0.00 loops=1)
+  Buffers: shared hit=159
+  ->  Bitmap Heap Scan on flights  (cost=35.87..205.56 rows=713 width=64) (actual time=0.027..0.029 rows=10.00 loops=1)
+        Recheck Cond: (((status)::text = ANY ('{SCHEDULED,DELAYED}'::text[])) AND (departure_at < '2026-07-01 00:00:00+05:30'::timestamp with time zone))
+        Heap Blocks: exact=1
+        Buffers: shared hit=3
+        ->  Bitmap Index Scan on idx_flights_active_dep  (cost=0.00..35.69 rows=713 width=0) (actual time=0.013..0.013 rows=10.00 loops=1)
+              Index Cond: (((status)::text = ANY ('{SCHEDULED,DELAYED}'::text[])) AND (departure_at < '2026-07-01 00:00:00+05:30'::timestamp with time zone))
+              Index Searches: 1
+              Buffers: shared hit=2
+Planning:
+  Buffers: shared hit=231
+Planning Time: 0.619 ms
+Execution Time: 0.473 ms
+=== W04 run 3 ===
+Update on flights  (cost=35.87..205.56 rows=0 width=0) (actual time=0.438..0.439 rows=0.00 loops=1)
+  Buffers: shared hit=159
+  ->  Bitmap Heap Scan on flights  (cost=35.87..205.56 rows=713 width=64) (actual time=0.027..0.029 rows=10.00 loops=1)
+        Recheck Cond: (((status)::text = ANY ('{SCHEDULED,DELAYED}'::text[])) AND (departure_at < '2026-07-01 00:00:00+05:30'::timestamp with time zone))
+        Heap Blocks: exact=1
+        Buffers: shared hit=3
+        ->  Bitmap Index Scan on idx_flights_active_dep  (cost=0.00..35.69 rows=713 width=0) (actual time=0.012..0.013 rows=10.00 loops=1)
+              Index Cond: (((status)::text = ANY ('{SCHEDULED,DELAYED}'::text[])) AND (departure_at < '2026-07-01 00:00:00+05:30'::timestamp with time zone))
+              Index Searches: 1
+              Buffers: shared hit=2
+Planning:
+  Buffers: shared hit=231
+Planning Time: 0.769 ms
+Execution Time: 0.551 ms
