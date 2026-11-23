@@ -1,0 +1,81 @@
+=== R08 run 1 ===
+Sort  (cost=347.15..347.18 rows=13 width=27) (actual time=20.721..20.722 rows=0.00 loops=1)
+  Sort Key: f.departure_at
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=2234 read=253
+  ->  HashAggregate  (cost=346.41..346.91 rows=13 width=27) (actual time=20.703..20.704 rows=0.00 loops=1)
+        Group Key: f.flight_id
+        Filter: (COALESCE(sum(fb.passengers), '0'::bigint) < 5)
+        Batches: 1  Memory Usage: 129kB
+        Rows Removed by Filter: 744
+        Buffers: shared hit=2231 read=253
+        ->  Nested Loop Left Join  (cost=0.70..321.88 rows=4907 width=21) (actual time=0.433..14.624 rows=64156.00 loops=1)
+              Buffers: shared hit=2231 read=253
+              ->  Index Only Scan using idx_flights_active_dep on flights f  (cost=0.28..5.08 rows=40 width=19) (actual time=0.279..0.602 rows=744.00 loops=1)
+                    Index Cond: ((status = 'SCHEDULED'::text) AND (departure_at >= '2026-07-01 00:00:00+05:30'::timestamp with time zone))
+                    Heap Fetches: 0
+                    Index Searches: 1
+                    Buffers: shared hit=1 read=8
+              ->  Index Only Scan using idx_flight_bookings_flight_id on flight_bookings fb  (cost=0.43..6.65 rows=127 width=6) (actual time=0.004..0.013 rows=86.23 loops=744)
+                    Index Cond: (flight_id = f.flight_id)
+                    Heap Fetches: 0
+                    Index Searches: 744
+                    Buffers: shared hit=2230 read=245
+Planning:
+  Buffers: shared hit=313
+Planning Time: 1.006 ms
+Execution Time: 20.781 ms
+=== R08 run 2 ===
+Sort  (cost=347.15..347.18 rows=13 width=27) (actual time=16.431..16.432 rows=0.00 loops=1)
+  Sort Key: f.departure_at
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=2487
+  ->  HashAggregate  (cost=346.41..346.91 rows=13 width=27) (actual time=16.418..16.418 rows=0.00 loops=1)
+        Group Key: f.flight_id
+        Filter: (COALESCE(sum(fb.passengers), '0'::bigint) < 5)
+        Batches: 1  Memory Usage: 129kB
+        Rows Removed by Filter: 744
+        Buffers: shared hit=2484
+        ->  Nested Loop Left Join  (cost=0.70..321.88 rows=4907 width=21) (actual time=0.028..10.415 rows=64156.00 loops=1)
+              Buffers: shared hit=2484
+              ->  Index Only Scan using idx_flights_active_dep on flights f  (cost=0.28..5.08 rows=40 width=19) (actual time=0.014..0.089 rows=744.00 loops=1)
+                    Index Cond: ((status = 'SCHEDULED'::text) AND (departure_at >= '2026-07-01 00:00:00+05:30'::timestamp with time zone))
+                    Heap Fetches: 0
+                    Index Searches: 1
+                    Buffers: shared hit=9
+              ->  Index Only Scan using idx_flight_bookings_flight_id on flight_bookings fb  (cost=0.43..6.65 rows=127 width=6) (actual time=0.002..0.008 rows=86.23 loops=744)
+                    Index Cond: (flight_id = f.flight_id)
+                    Heap Fetches: 0
+                    Index Searches: 744
+                    Buffers: shared hit=2475
+Planning:
+  Buffers: shared hit=313
+Planning Time: 1.046 ms
+Execution Time: 16.489 ms
+=== R08 run 3 ===
+Sort  (cost=347.15..347.18 rows=13 width=27) (actual time=16.299..16.300 rows=0.00 loops=1)
+  Sort Key: f.departure_at
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=2487
+  ->  HashAggregate  (cost=346.41..346.91 rows=13 width=27) (actual time=16.286..16.286 rows=0.00 loops=1)
+        Group Key: f.flight_id
+        Filter: (COALESCE(sum(fb.passengers), '0'::bigint) < 5)
+        Batches: 1  Memory Usage: 129kB
+        Rows Removed by Filter: 744
+        Buffers: shared hit=2484
+        ->  Nested Loop Left Join  (cost=0.70..321.88 rows=4907 width=21) (actual time=0.029..10.302 rows=64156.00 loops=1)
+              Buffers: shared hit=2484
+              ->  Index Only Scan using idx_flights_active_dep on flights f  (cost=0.28..5.08 rows=40 width=19) (actual time=0.014..0.091 rows=744.00 loops=1)
+                    Index Cond: ((status = 'SCHEDULED'::text) AND (departure_at >= '2026-07-01 00:00:00+05:30'::timestamp with time zone))
+                    Heap Fetches: 0
+                    Index Searches: 1
+                    Buffers: shared hit=9
+              ->  Index Only Scan using idx_flight_bookings_flight_id on flight_bookings fb  (cost=0.43..6.65 rows=127 width=6) (actual time=0.002..0.007 rows=86.23 loops=744)
+                    Index Cond: (flight_id = f.flight_id)
+                    Heap Fetches: 0
+                    Index Searches: 744
+                    Buffers: shared hit=2475
+Planning:
+  Buffers: shared hit=313
+Planning Time: 1.019 ms
+Execution Time: 16.357 ms

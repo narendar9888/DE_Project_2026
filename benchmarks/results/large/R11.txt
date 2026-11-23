@@ -1,0 +1,30 @@
+=== R11 run 1 ===
+Index Only Scan using idx_bookings_pending_booked_at on bookings  (cost=0.28..103.77 rows=2028 width=31) (actual time=0.258..0.978 rows=1858.00 loops=1)
+  Index Cond: (booked_at < ('2026-06-30 23:59:00+05:30'::timestamp with time zone - '00:30:00'::interval))
+  Heap Fetches: 0
+  Index Searches: 1
+  Buffers: shared hit=1 read=15
+Planning:
+  Buffers: shared hit=264
+Planning Time: 0.896 ms
+Execution Time: 1.060 ms
+=== R11 run 2 ===
+Index Only Scan using idx_bookings_pending_booked_at on bookings  (cost=0.28..103.77 rows=2028 width=31) (actual time=0.009..0.158 rows=1858.00 loops=1)
+  Index Cond: (booked_at < ('2026-06-30 23:59:00+05:30'::timestamp with time zone - '00:30:00'::interval))
+  Heap Fetches: 0
+  Index Searches: 1
+  Buffers: shared hit=16
+Planning:
+  Buffers: shared hit=264
+Planning Time: 0.782 ms
+Execution Time: 0.236 ms
+=== R11 run 3 ===
+Index Only Scan using idx_bookings_pending_booked_at on bookings  (cost=0.28..103.77 rows=2028 width=31) (actual time=0.009..0.165 rows=1858.00 loops=1)
+  Index Cond: (booked_at < ('2026-06-30 23:59:00+05:30'::timestamp with time zone - '00:30:00'::interval))
+  Heap Fetches: 0
+  Index Searches: 1
+  Buffers: shared hit=16
+Planning:
+  Buffers: shared hit=264
+Planning Time: 0.816 ms
+Execution Time: 0.244 ms

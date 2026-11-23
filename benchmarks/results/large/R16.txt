@@ -1,0 +1,33 @@
+=== R16 run 1 ===
+Sort  (cost=1.20..1.22 rows=8 width=19) (actual time=0.322..0.323 rows=8.00 loops=1)
+  Sort Key: booking_type, loyalty_tier
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=3 read=1
+  ->  Seq Scan on mv_booking_lead_time  (cost=0.00..1.08 rows=8 width=19) (actual time=0.282..0.283 rows=8.00 loops=1)
+        Buffers: shared read=1
+Planning:
+  Buffers: shared hit=67 read=2
+Planning Time: 0.562 ms
+Execution Time: 0.344 ms
+=== R16 run 2 ===
+Sort  (cost=1.20..1.22 rows=8 width=19) (actual time=0.033..0.034 rows=8.00 loops=1)
+  Sort Key: booking_type, loyalty_tier
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=4
+  ->  Seq Scan on mv_booking_lead_time  (cost=0.00..1.08 rows=8 width=19) (actual time=0.005..0.006 rows=8.00 loops=1)
+        Buffers: shared hit=1
+Planning:
+  Buffers: shared hit=69
+Planning Time: 0.262 ms
+Execution Time: 0.052 ms
+=== R16 run 3 ===
+Sort  (cost=1.20..1.22 rows=8 width=19) (actual time=0.034..0.035 rows=8.00 loops=1)
+  Sort Key: booking_type, loyalty_tier
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=4
+  ->  Seq Scan on mv_booking_lead_time  (cost=0.00..1.08 rows=8 width=19) (actual time=0.006..0.007 rows=8.00 loops=1)
+        Buffers: shared hit=1
+Planning:
+  Buffers: shared hit=69
+Planning Time: 0.249 ms
+Execution Time: 0.053 ms
