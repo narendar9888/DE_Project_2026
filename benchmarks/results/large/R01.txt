@@ -1,0 +1,105 @@
+=== R01 run 1 ===
+Sort  (cost=165.60..165.61 rows=2 width=42) (actual time=8.279..8.281 rows=1.00 loops=1)
+  Sort Key: f.departure_at
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=214 read=200
+  ->  HashAggregate  (cost=165.57..165.59 rows=2 width=42) (actual time=8.257..8.258 rows=1.00 loops=1)
+        Group Key: f.flight_id
+        Batches: 1  Memory Usage: 32kB
+        Buffers: shared hit=211 read=200
+        ->  Nested Loop Left Join  (cost=5.17..163.73 rows=245 width=46) (actual time=0.589..8.211 rows=101.00 loops=1)
+              Buffers: shared hit=211 read=200
+              ->  Nested Loop Left Join  (cost=4.74..27.53 rows=245 width=40) (actual time=0.367..0.392 rows=101.00 loops=1)
+                    Buffers: shared hit=3 read=4
+                    ->  Bitmap Heap Scan on flights f  (cost=4.32..11.69 rows=2 width=34) (actual time=0.253..0.255 rows=1.00 loops=1)
+                          Recheck Cond: (((origin)::text = 'DEL'::text) AND ((destination)::text = 'BOM'::text) AND (departure_at >= '2026-07-05 00:00:00+05:30'::timestamp with time zone) AND (departure_at < '2026-07-06 00:00:00+05:30'::timestamp with time zone))
+                          Filter: ((status)::text <> 'CANCELLED'::text)
+                          Heap Blocks: exact=1
+                          Buffers: shared read=3
+                          ->  Bitmap Index Scan on idx_flights_route_dep  (cost=0.00..4.32 rows=2 width=0) (actual time=0.201..0.201 rows=1.00 loops=1)
+                                Index Cond: (((origin)::text = 'DEL'::text) AND ((destination)::text = 'BOM'::text) AND (departure_at >= '2026-07-05 00:00:00+05:30'::timestamp with time zone) AND (departure_at < '2026-07-06 00:00:00+05:30'::timestamp with time zone))
+                                Index Searches: 1
+                                Buffers: shared read=2
+                    ->  Index Only Scan using idx_flight_bookings_flight_id on flight_bookings fb  (cost=0.43..6.65 rows=127 width=10) (actual time=0.112..0.124 rows=101.00 loops=1)
+                          Index Cond: (flight_id = f.flight_id)
+                          Heap Fetches: 0
+                          Index Searches: 1
+                          Buffers: shared hit=3 read=1
+              ->  Index Scan using bookings_pkey on bookings b  (cost=0.43..0.56 rows=1 width=14) (actual time=0.077..0.077 rows=1.00 loops=101)
+                    Index Cond: (booking_id = fb.booking_id)
+                    Index Searches: 101
+                    Buffers: shared hit=208 read=196
+Planning:
+  Buffers: shared hit=492 read=36 dirtied=3
+Planning Time: 5.203 ms
+Execution Time: 8.356 ms
+=== R01 run 2 ===
+Sort  (cost=165.60..165.61 rows=2 width=42) (actual time=0.624..0.625 rows=1.00 loops=1)
+  Sort Key: f.departure_at
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=414
+  ->  HashAggregate  (cost=165.57..165.59 rows=2 width=42) (actual time=0.606..0.607 rows=1.00 loops=1)
+        Group Key: f.flight_id
+        Batches: 1  Memory Usage: 32kB
+        Buffers: shared hit=411
+        ->  Nested Loop Left Join  (cost=5.17..163.73 rows=245 width=46) (actual time=0.042..0.579 rows=101.00 loops=1)
+              Buffers: shared hit=411
+              ->  Nested Loop Left Join  (cost=4.74..27.53 rows=245 width=40) (actual time=0.029..0.046 rows=101.00 loops=1)
+                    Buffers: shared hit=7
+                    ->  Bitmap Heap Scan on flights f  (cost=4.32..11.69 rows=2 width=34) (actual time=0.020..0.020 rows=1.00 loops=1)
+                          Recheck Cond: (((origin)::text = 'DEL'::text) AND ((destination)::text = 'BOM'::text) AND (departure_at >= '2026-07-05 00:00:00+05:30'::timestamp with time zone) AND (departure_at < '2026-07-06 00:00:00+05:30'::timestamp with time zone))
+                          Filter: ((status)::text <> 'CANCELLED'::text)
+                          Heap Blocks: exact=1
+                          Buffers: shared hit=3
+                          ->  Bitmap Index Scan on idx_flights_route_dep  (cost=0.00..4.32 rows=2 width=0) (actual time=0.012..0.012 rows=1.00 loops=1)
+                                Index Cond: (((origin)::text = 'DEL'::text) AND ((destination)::text = 'BOM'::text) AND (departure_at >= '2026-07-05 00:00:00+05:30'::timestamp with time zone) AND (departure_at < '2026-07-06 00:00:00+05:30'::timestamp with time zone))
+                                Index Searches: 1
+                                Buffers: shared hit=2
+                    ->  Index Only Scan using idx_flight_bookings_flight_id on flight_bookings fb  (cost=0.43..6.65 rows=127 width=10) (actual time=0.008..0.015 rows=101.00 loops=1)
+                          Index Cond: (flight_id = f.flight_id)
+                          Heap Fetches: 0
+                          Index Searches: 1
+                          Buffers: shared hit=4
+              ->  Index Scan using bookings_pkey on bookings b  (cost=0.43..0.56 rows=1 width=14) (actual time=0.005..0.005 rows=1.00 loops=101)
+                    Index Cond: (booking_id = fb.booking_id)
+                    Index Searches: 101
+                    Buffers: shared hit=404
+Planning:
+  Buffers: shared hit=528
+Planning Time: 1.724 ms
+Execution Time: 0.691 ms
+=== R01 run 3 ===
+Sort  (cost=165.60..165.61 rows=2 width=42) (actual time=0.695..0.696 rows=1.00 loops=1)
+  Sort Key: f.departure_at
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=414
+  ->  HashAggregate  (cost=165.57..165.59 rows=2 width=42) (actual time=0.675..0.676 rows=1.00 loops=1)
+        Group Key: f.flight_id
+        Batches: 1  Memory Usage: 32kB
+        Buffers: shared hit=411
+        ->  Nested Loop Left Join  (cost=5.17..163.73 rows=245 width=46) (actual time=0.065..0.633 rows=101.00 loops=1)
+              Buffers: shared hit=411
+              ->  Nested Loop Left Join  (cost=4.74..27.53 rows=245 width=40) (actual time=0.035..0.058 rows=101.00 loops=1)
+                    Buffers: shared hit=7
+                    ->  Bitmap Heap Scan on flights f  (cost=4.32..11.69 rows=2 width=34) (actual time=0.025..0.026 rows=1.00 loops=1)
+                          Recheck Cond: (((origin)::text = 'DEL'::text) AND ((destination)::text = 'BOM'::text) AND (departure_at >= '2026-07-05 00:00:00+05:30'::timestamp with time zone) AND (departure_at < '2026-07-06 00:00:00+05:30'::timestamp with time zone))
+                          Filter: ((status)::text <> 'CANCELLED'::text)
+                          Heap Blocks: exact=1
+                          Buffers: shared hit=3
+                          ->  Bitmap Index Scan on idx_flights_route_dep  (cost=0.00..4.32 rows=2 width=0) (actual time=0.015..0.015 rows=1.00 loops=1)
+                                Index Cond: (((origin)::text = 'DEL'::text) AND ((destination)::text = 'BOM'::text) AND (departure_at >= '2026-07-05 00:00:00+05:30'::timestamp with time zone) AND (departure_at < '2026-07-06 00:00:00+05:30'::timestamp with time zone))
+                                Index Searches: 1
+                                Buffers: shared hit=2
+                    ->  Index Only Scan using idx_flight_bookings_flight_id on flight_bookings fb  (cost=0.43..6.65 rows=127 width=10) (actual time=0.009..0.015 rows=101.00 loops=1)
+                          Index Cond: (flight_id = f.flight_id)
+                          Heap Fetches: 0
+                          Index Searches: 1
+                          Buffers: shared hit=4
+              ->  Index Scan using bookings_pkey on bookings b  (cost=0.43..0.56 rows=1 width=14) (actual time=0.005..0.005 rows=1.00 loops=101)
+                    Index Cond: (booking_id = fb.booking_id)
+                    Index Searches: 101
+                    Buffers: shared hit=404
+Planning:
+  Buffers: shared hit=528
+Planning Time: 1.964 ms
+Execution Time: 0.766 ms
